@@ -25,6 +25,15 @@ router.delete('/api/artists/:id', artistsController.destroy);
 // index
 router.get('/api/managers', managersController.index);
 
+router.get('/api/managers/:id', managersController.show);
+
+router.put('/api/managers/:id', managersController.update);
+
+router.post('/api/managers/new', managersController.create);
+
+//NEED DESTROY
+router.delete('/api/managers/:id', managersController.destroy);
+
 //Song Routes
 
 module.exports = router;

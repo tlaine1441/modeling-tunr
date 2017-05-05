@@ -10,7 +10,21 @@ var artistCreate = function() {
   });
 };
 
+var managerCreate = function(){
+	return DB.Manager.create({
+  	name: "Ricky Bobby",
+  	email: "rbobby@gmail.com",
+  	office_number: "516-877-0304",
+  	cell_phone_number: "718-989-1231",
+  	id: 0
+  	});
+};
+
+
+
 artistCreate()
-.then(function() {
+.then(
+	managerCreate()
+	.then(function() {
 	process.exit();
-});
+}));
