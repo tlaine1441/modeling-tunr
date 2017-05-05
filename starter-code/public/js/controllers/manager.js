@@ -1,6 +1,40 @@
-	angular.module("tunrApp")
-	.controller("ManagerIndexController", ManagerIndexController);
+angular.module("tunrApp")
+	.controller("ManagerIndexController", ManagerIndexController)
+	.controller("ManagerShowController", ManagerShowController)
+	.controller("ManagerEditController", ManagerEditController)
+	.controller("ManagerNewController", ManagerNewController);
 
+
+//ADDING NEW CONTROLERS
+ManagerShowController.$inject = ['$http', '$routeParams'];
+function ManagerShowController($http, $routeParams){
+	//console.log(managers[0].name);
+	var self = this;
+	//self.manager = managers[$routeParams.id];
+
+	$http.get('/api/managers/' + $routeParams.id)
+		.then(function(response){
+			console.log(response.data);
+			self.manager = response.data;
+		});
+
+}
+
+ManagerNewController.$inject = ['$http', '$location'];
+function ManagerNewController($http, $location){
+	console.log(managers[0].name);
+	var self = this;
+	self.name = managers[0].name;
+}
+
+ManagerEditController.$inject = ['$http', '$routeParams', '$location'];
+function ManagerEditController($http, $routeParams, $location){
+	console.log(managers[0].name);
+	var self = this;
+	self.name = managers[0].name;
+}
+
+//PREBUILT CONTROLLERS
 ManagerIndexController.$inject = ["$http"];
 function ManagerIndexController($http) {
 	var vm = this;

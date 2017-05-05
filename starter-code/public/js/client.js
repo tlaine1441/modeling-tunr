@@ -50,24 +50,27 @@ angular.module("tunrApp", ['ngRoute'])
 
 			//new
 			.when('/managers/new', {
-				template: '<h1>ADDING A NEW MANAGER</h1>'
+				templateUrl: '/templates/managers/new.html',
+				controller: 'ManagerNewController as managersController'
 			})
 
 			//show
 			.when('/managers/:id',{
-				template: '<h1>SHOWING MANAGER</h1>'
+				templateUrl: '/templates/managers/show.html',
+				controller: "ManagerShowController as managersController"
 			})
 
 
 			//edit
 			.when('/managers/:id/edit', {
-				template: '<h1>EDITING MANAGER</h1>'
-			})
+				templateUrl: '/templates/managers/edit.html',
+				controller: "ManagerEditController as managersController"
+			});
 
 			//delete
-			.when('/managers/:id/delete', {
-				template: '<h1> DELETING MANAGER</h1>'
-			});
+			// .when('/managers/:id/delete', {
+			// 	template: ''
+			// });
 
 
 
